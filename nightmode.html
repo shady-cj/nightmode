@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
+        <title>Night Mode</title>
         <!-- a line to test run -->
-        </title>
+        <link rel="icon" href="cr7.ico">
         <style>
             button {
                 border : none;
@@ -46,7 +46,7 @@
                 
                 display()
             }
-
+            // defining the function for the display of the color
             function display(){
                 let logger = JSON.parse(localStorage.getItem('dataLog'))
                 document.body.style.background = logger.bgcolor
