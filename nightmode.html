@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+        <!-- a line to test run -->
+        </title>
+        <style>
+            button {
+                border : none;
+                padding:10px;
+                display:block;
+                margin:0 95%;
+                width:50px;
+                height:50px;
+                font-size:10px;
+                text-transform:capitalize;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                border-radius:50%;
+            }
+        </style>
+    </head>
+    <body>
+        <button>light mode</button>
+        <script>
+            let bgColor,coLor,content,dataLog;
+            let btn = document.querySelector("button")
+            display()
+            btn.onclick = function(){
+                if (btn.textContent ==="dark mode"){
+
+                    bgColor = 'black'
+                    coLor='black'
+                    btnColor='lightgray'
+                    content='light mode'
+                }else{
+                    
+                    bgColor = 'white'
+                    coLor='white'
+                    content='dark mode'
+                    btnColor = 'black'
+                }
+                dataLog = {'bgcolor':bgColor,'color':coLor,'content':content,'btncolor':btnColor}
+                localStorage.setItem('dataLog',JSON.stringify(dataLog))
+                
+                display()
+            }
+
+            function display(){
+                let logger = JSON.parse(localStorage.getItem('dataLog'))
+                document.body.style.background = logger.bgcolor
+                btn.style.color=logger.color
+                btn.style.background = logger.btncolor
+                btn.textContent = logger.content
+                
+
+            }
+        </script>
+    </body>
+</html>
